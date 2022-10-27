@@ -3,7 +3,6 @@ import { config } from 'dotenv';
 import { Octokit } from '@octokit/rest';
 
 import githubQuery from './githubQuery';
-import generateBarChart from './generateBarChart';
 import { userInfoQuery, createContributedRepoQuery, createCommittedDateQuery } from './queries';
 /**
  * get environment variable
@@ -84,7 +83,6 @@ interface IRepo {
     const line = [
       `${cur.label}`.padEnd(10),
       `${cur.commits.toString().padStart(5)} commits`.padEnd(14),
-      generateBarChart(percent, 21),
       String(percent.toFixed(1)).padStart(5) + '%',
     ];
 
